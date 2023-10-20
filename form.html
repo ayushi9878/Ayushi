@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FD Scheme</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    
+   
+    
+    <style>
+    /* Styles for the dialog box */
+    .dialog {
+      /* display: none; */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dialog h2 {
+      margin-top: 0;
+    }
+    
+    .dialog button {
+      padding: 10px 20px;
+      background-color: #e1932e;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .dialog .guardian-details {
+      display: none;
+    }
+    #NomineeDetail{
+      background-color: #ff9b29;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-right: -155px;
+    }
+    .details{
+      width: 300px;
+     height: 40px;
+     padding: 10px;
+     font-size: 16px;
+     border: 2px solid #ccc;
+     border-radius: 4px;
+     box-shadow: 1px 1px 2px #ddd;
+    }
+    .submitCloseButtons{
+      background-color: #c5771ffc;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 7px 2px;
+    cursor: pointer;
+    margin-right: 16px;
+    border:none
+    }
+
+  
+    .button {
+  background-color: #ffffff; 
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.button:hover {
+  background-color: #ff9b29;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: #ffffff;
+}
+
+
+
+.submit_button{
+  background-color: #ff9b29; 
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left: -412px;
+
+}
+
+.button1 {
+  background-color: #ffffff; 
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button1.clicked {
+  background-color: #FFC107;
+
+}
+
+.dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dialog h2 {
+  margin-top: 0;
+}
+
+.dialog button {
+  padding: 10px 20px;
+  background-color: #e1932e;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.button1:hover{
+  background-color: #ff9b29;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: #ffffff;
+}
+
+#maturityDate:focus{
+ outline: none;
+}
+</style>
+<script>
+ window.onload = function() 
+ {
+   var select1 = document.getElementById("Year");
+   var select2= document.getElementById("Month");
+   var select3 = document.getElementById("Days");
+    
+    for (var i = 1; i <= 5; i++) {
+    var option = document.createElement("option");
+    option.value = i;
+    option.text = i;
+    select1.appendChild(option);
+  }
+
+      // Populate options for 1 to 12
+      for (var j = 1; j <= 12; j++) {
+        var option = document.createElement("option");
+        option.value = j;
+        option.text = j;
+        select2.appendChild(option);
+      }
+
+      // Populate options for 31 to days
+      for (var k = 1; k <= 31; k++) {
+        var option = document.createElement("option");
+        option.value = k;
+        option.text = k;
+        select3.appendChild(option);
+      }
+   };  
+     function updateTextBox(that) {
+     debugger;
+     var getId = that.id;
+     var dropdown = document.getElementById("Year");
+     var textBox = document.getElementById("myTextBox");
+      if(getId == "2Year"){
+       textBox.value = "2 Year";
+        }
+                else if(getId == "3Year"){
+                    textBox.value ="3 Year"
+                }
+                else{
+                    textBox.value ="4 Year"
+                }
+            
+          }
+
+    
+   function MaturityCalculator(){
+    debugger ; 
+    var url2="http://192.168.43.142:8290/rest/AccountService/fetchFDScheme";
+
+    var xhttp1 = new XMLHttpRequest();
+
+    xhttp1.onreadystatechange = function()
+
+   {
+
+   if(xhttp1.readyState == 4 && xhttp1.status == 200)
+
+    {                                                                                                  
+      var resArrays=xhttp.responseText;
+      var jsonDatas = JSON.parse(resArray);
+
+        if(jsonDatas!=null){
+        //$("#calc option").remove();
+        for( var i = 0 ; i< jsonDatas.length ; i++){
+
+        $('#calc').append("<option value='" + jsonData[i].sch_kid  + "' dataf2='" + jsonData[i].fpr_ipp  + "' >" + jsonData[i].sch_ename + "</option>");
+
+      }
+
+        }  
+        else{
+
+        alert("Scheme Not Available");
+        }
+      }
+
+
+    };
+
+    xhttp.open("POST", url, true);
+    xhttp.send("F");    
+
+    
+
+  } 
+
+
+</script>
+    
+</head>
+<body>
+ <form style="text-align: center;">
+        <!-- <label for="TYPE">FD Resident</label> -->
+
+<select name="TYPE" id="cars" style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large;">
+    <option value="volvo"><b>FD Resident</b></option>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select><br> <br>
+
+
+<!--this is for Amount -->
+<lable for="Amount">
+    <div style="font-weight:bold; font-size:22px; margin-left: -466px;">
+    Amount </div></lable>
+<input type="number" name="Amount" min ="100000" style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large; line-height: 1"> <br>
+<div style="margin-left: -355px;">Minimum amount ₹ 1,00,000</div><br><br>
+
+
+
+<!--interest payout frequency with button-->
+<lable for="interest">
+    <div style="font-weight:bold; font-size: larger; margin-left: -309px; font-family: 'Open Sans', sans-serif;">
+        interest Payout Frequency</div></lable>
+       
+ <input type="button" value="Monthly" class="button1" id="myButton">
+<input type="button" value="Quarterly" class="button1" id="myButton">
+<input type="button" class="button1" value="At Maturity" id="myButton"> 
+<br><br>
+
+
+
+<!--Deposit Period-->
+<lable for="depositeperiod" id="Deposite_Period">
+    <div style="font-weight:bold; font-size: larger; font-updateTextBoxfamily: 'Open Sans', sans-serif; margin-left: -383px;">
+    deposit Period </div></lable>
+<input type="text" name="DepositeP"  id="myTextBox" value="" style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large; line-height: 10px">
+
+<!--EDIT DIALOG BOX-->
+<input type="button" onclick="openDialog()" style="margin-left: -42px; cursor: pointer; color: rgb(255, 112, 3); font-weight: bolder;border: none;" value="EDIT"> <br>
+<div id="dialog" class="dialog" style="display: none;">
+    <h2>Edit Dialog</h2>
+
+
+    <label for="year" id="editInput" style="font-weight: bold;">Select Year:</label>
+    <select id="Year" onchange="updateTextBox()">
+    </select>
+        <br><br>
+        <label for="Month" id="editInput" style="font-weight: bold;">Select Month:</label>
+       <select id="Month" onchange="updateTextBox()">
+       </select>
+       <br><br>
+       <label for="days" id="editInput" style="font-weight: bold;">Select Days</label>
+       <select id="Days" onchange="updateTextBox()">
+
+        </select>
+<br><br><br>
+    <input type="button" onclick="saveOptions()" value="SAVE" class="submitCloseButtons">
+    <input type="button" onclick="closepopup()" value="CLOSE" class="submitCloseButtons" id="editDialog">
+</div>
+
+
+
+
+
+
+
+ 
+<!-- <input type="button" name="editB" value="EDIT"/> -->
+<input type="button" class="button " id="2Year" onclick="updateTextBox(this)" value="2 Years">
+<input type="button" class="button" id="3Year" onclick="updateTextBox(this)" value="3 Years">
+<input type="button" class="button" id="4Year" onclick="updateTextBox(this)" value="4 Years">
+<br><br>
+<div style="color:rgb(255, 112, 3); margin-left: -408px;"> Check interest rates</div>
+<br><br>
+
+
+
+<!-- Debit Account-->
+<lable for="debit">
+    <div style="font-weight:bold; font-size: larger; margin-left: -412px;">
+    Debit Account </div></lable>
+<input type="number" name="dr_account" style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large; line-height: 1"> <br>
+<div style="margin-left: -398px;">Available Balance:₹ </div><br><br>
+
+<!--Maturity Value-->
+<!-- <lable for="Maturity">
+    <div style="font-weight:bold; font-size: larger; margin-left: -405px;" id="result" >
+    Maturity Value </div>
+    <div style="font-weight:bold; font-size: larger; margin-left: -405px;" id="result" >
+      interest Rate</div></lable></lable>
+<input type="text" name="dr_account"  id="maturityDate"style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large; line-height: 1" readonly> -->
+
+<div class="container-fluid">
+<div class="col-sm-3">
+  <label style="font-weight:bold; font-size: larger; margin-left: -11px;" id="result" >
+    Maturity value</label>
+ 
+    <label style="font-weight:bold; font-size: larger; margin-left: 297px;" id="result" >
+      interest Rate</label>
+    </div>
+  </div>
+  
+      <input type="text" name="dr_account"  id="maturityDate"style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large; line-height: 1" readonly> 
+
+
+      
+
+
+
+<lable for="interest Rate">
+  <div style="font-weight:bold; font-size: larger; margin-left: -405px;" id="result" >
+  interest Rate</div></lable>
+<input type="text" name="dr_account"  id="maturityDate"style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large; line-height: 1" readonly>
+
+
+<!--interest rate-->
+<lable for="Intrest_rate">
+    <div style="font-weight:bold; font-size: larger; margin-left: -428px;" id="result">
+    interest Rate </div></lable>
+<input type="text" name="IntrestRate"  id="Intrest_rates"style="border-top: none;border-left: none;border-right: none;width: 40%; font-size: large; line-height: 1"> <br>
+<br><br>
+
+<!--Submit Button-->
+<input type ="submit" class="submit_button" >
+
+
+<!--GURDIAN INFORMATION-->
+<input type="button" onclick="showDialog()" value="Open Dialog" id="NomineeDetail">
+
+  <div id="myDialog" class="dialog">
+    <h2>Nominee Details</h2>
+    <input type="text" id="nameInput" placeholder="Nominee Name" class="details">
+    <br>
+    <input type="number" id="ageInput" placeholder="Nominee Age" class="details">
+    <br>
+    <div class="guardian-details">
+      <input type="text" id="guardianNameInput" placeholder="Guardian Name" class="details">
+      <input type="numbers" id="guardianPhoneInput" placeholder="Guardian Phone" class="details">
+    </div><br><br>
+
+    <input type="button" onclick="submitDetails()" value="Submit" class="submitCloseButtons">
+    <input type= "button" onclick="closeDialogs()" value="Close" class="submitCloseButtons">
+  </div>
+
+
+</form>
+
+<script>
+       // debugger;
+       function openDialog() {
+      var dialog = document.getElementById("dialog");
+      dialog.style.display = "block";
+    }
+    
+    function closepopup() {
+      //document.getElementById("editDialog").style.display = "";
+      var dialog = document.getElementById("dialog");
+      dialog.style.display = "none";
+
+    }
+    function saveOptions() {
+    var dropdown1 = document.getElementById("Year");
+      var dropdown2 = document.getElementById("Month");
+      var dropdown3 = document.getElementById("Days");
+      var textBox = document.getElementById("myTextBox");
+      var selectedOption1 = dropdown1.value;
+      var selectedOption2 = dropdown2.value;
+      var selectedOption3 = dropdown3.value;
+
+      textBox.value = selectedOption1 + "Year " + selectedOption2 + "Months " + selectedOption3 + "Days ";
+
+      var dialog = document.getElementById("dialog");
+      dialog.style.display = "none";
+    }
+
+ 
+  
+   
+   
+    function showDialog() {
+     // debugger;
+      document.getElementById("myDialog").style.display = "block";
+    }
+    
+    function closeDialogs() {
+      document.getElementById("myDialog").style.display = "none";
+    }
+    
+    function submitDetails() {
+      //debugger;
+      var nomineeAge = parseInt(document.getElementById("ageInput").value);
+      var guardianPhone ;
+      if (nomineeAge < 18) {
+        document.querySelector(".guardian-details").style.display = "block";
+        var guardianName = document.getElementById("guardianNameInput").value;
+        guardianPhone = document.getElementById("guardianPhoneInput").value;
+      
+        console.log("Guardian Name:", guardianName);
+        console.log("Guardian Phone:", guardianPhone);
+      }
+      
+      var nomineeName = document.getElementById("nameInput").value;
+      var nomineeAge = document.getElementById("ageInput").value;
+      
+      console.log("Nominee Name:", nomineeName);
+      console.log("Nominee Age:", nomineeAge);
+      if(guardianPhone!="" ){
+        document.querySelector("#myDialog").style.display = "none";
+      }
+      
+    }
+  </script>
+
+    
+ 
+</body>
+</html>
+
+
